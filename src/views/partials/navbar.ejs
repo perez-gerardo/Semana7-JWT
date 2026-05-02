@@ -1,0 +1,21 @@
+<nav class="z-depth-0">
+  <div class="nav-wrapper container">
+    <a href="/" class="brand-logo">JWT Auth<span style="color:#ff4444">.</span></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#" id="nav-dash">Dashboard</a></li>
+      <li><a href="/profile">Perfil</a></li>
+      <li><a href="#!" onclick="logout()" style="color: #ff4444 !important; font-weight: 700;">Salir</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const t = typeof getToken==='function' ? getToken() : null;
+  if (t) {
+    const p = parseJwt(t);
+    const el = document.getElementById('nav-dash');
+    if (el && p && p.roles) el.href = p.roles.includes('admin') ? '/admin/dashboard' : '/dashboard';
+  }
+})();
+</script>

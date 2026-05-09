@@ -3,6 +3,10 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import path from 'path';
+import dns from 'dns';
+
+// Forzar DNS de Google
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 import { fileURLToPath } from 'url';
 import authRoutes  from './routes/auth.routes.js';
 import userRoutes  from './routes/users.routes.js';
